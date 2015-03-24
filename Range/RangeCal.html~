@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery UI Daterange demo page</title>
+    <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            font: 12px Arial, sans-serif;
+            line-height: 1.4;
+        }
+        .info {
+            background: #f8f8f8;
+            margin-bottom: 1em;
+            padding: 8px;
+            font-size: 16px;
+        }
+		.info code {
+			display: inline-block;
+			background: white;
+			padding: 0 2px;
+			border: 1px solid #ddd;
+			border-radius: 3px;
+		}
+        .form__daterange {
+            font-size: 16px;
+            padding: 8px;
+            width: 30em;
+        }
+		.ui-datepicker-range > .ui-state-default {
+			background: lightsalmon;
+		}
+    </style>
+</head>
+<body>
+
+    <div class="info">
+        
+		<p>
+			Previously selected days can be highlighted via class <code>.ui-datepicker-range</code><br>
+		</p>
+    </div>
+
+    <div class="form">
+	   <h1 id="date_range">Click</h1>
+        <input  id="d" class="form__daterange" style="display:none"/>  
+		<p id="kk"></p>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="src/jquery.daterange.js"></script>
+
+    <script>
+        $(function () 
+		{ 
+			$("#d").daterange({
+                onClose: function (dateRangeText) {
+                    $("#kk").text(dateRangeText);
+                }
+             });	 
+                 $('#date_range').click(function() {    
+                  $("#d").datepicker('show');
+                  $("#d").trigger('focus');}); 	 
+            });
+    </script>
+       
+</body>
+</html>
